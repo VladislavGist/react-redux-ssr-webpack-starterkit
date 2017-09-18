@@ -23,5 +23,7 @@ app.get("/", (req, res) => {
 	res.send(serverTemplate(appString))
 })
 
+let port = 8081
+
 app.listen(8081)
-console.log("start ssr")
+console.log("start ssr in ", port)

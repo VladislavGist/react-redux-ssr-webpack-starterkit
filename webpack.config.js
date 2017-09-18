@@ -6,6 +6,7 @@ const outputPath = path.resolve(__dirname, "./dist");
 const webpackConfig = {
 	entry: {
 		app: [
+			"react-hot-loader/patch",
 			path.resolve(__dirname, "./src/index.js")
 		]
 	},
@@ -15,6 +16,12 @@ const webpackConfig = {
 	},
 	module: {
 		rules: [
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				enforce: "pre",
+				use: "eslint-loader"
+			},
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
@@ -52,7 +59,7 @@ const webpackConfig = {
 		historyApiFallback: true,
 		inline: true,
 		hot: true,
-		host: "0.0.0.0"
+		host: "localhost"
 	}
 };
 
