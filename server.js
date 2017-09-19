@@ -1,19 +1,17 @@
-import React from "react"
-
-//делает компоненты строкой
-import { renderToString } from "react-dom/server"
-
+import express from "express"
 //отдает html функцию которая принимает app
 import serverTemplate from "./serverTemplate"
-
+//делает компоненты строкой
+import { renderToString } from "react-dom/server"
+import React from "react"
 //основной компонент приложения
 import App from "./src/app"
+import ReactDOM from "react-dom"
 
-import express from "express"
 let app = express();
 
 //отдаем статические файлы
-app.use('/assets', express.static('src/assets'))
+app.use('/assets', express.static('src'))
 app.use('/dist', express.static('dist'))
 
 app.get("/", (req, res) => {
@@ -25,5 +23,5 @@ app.get("/", (req, res) => {
 
 let port = 8081
 
-app.listen(8081)
+app.listen(port)
 console.log("start ssr in ", port)

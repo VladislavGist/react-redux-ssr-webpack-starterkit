@@ -1,7 +1,8 @@
-const webpack = require("webpack");
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const outputPath = path.resolve(__dirname, "./dist");
+const webpack = require("webpack")
+const path = require("path")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const outputPath = path.resolve(__dirname, "./dist")
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 const webpackConfig = {
 	entry: {
@@ -12,7 +13,7 @@ const webpackConfig = {
 	},
 	output: {
 		path: outputPath,
-		filename: "[name].js"
+		filename: "js/[name].js"
 	},
 	module: {
 		rules: [
@@ -30,17 +31,18 @@ const webpackConfig = {
 			{
 				test: /\.sass$/,
 				exclude: /node_modules/,
-				use: [
-					"style-loader",
-					"css-loader",
-					"sass-loader"
-				]
+				use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
+					publicPath: "../",
+					fallback: "style-loader",
+					use: ["css-loader", "sass-loader"]
+				}))
 			},
 			{
-				test: /\.(gif|png|jpg|jpeg)$/,
-				exclude: /node_modules/,
-				include: path.resolve(__dirname, "./src/assets"),
-				use: "url-loader?limit=10000&name=assets/[name]-[hash].[ext]"
+				test: /\.(gif|png|jpg|jpeg|svg)$/,
+				loader: "file-loader",
+				options: {
+					name: "images/[name].[ext]"
+				}
 			}
 		]
 	},
@@ -51,7 +53,19 @@ const webpackConfig = {
 			path: outputPath
 		}),
 		new webpack.NamedModulesPlugin(),
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
+		new ExtractTextPlugin("./css/[name].css"),
+		new webpack.DefinePlugin({
+			'process.env': {
+				NODE_ENV: JSON.stringify("production")
+			}
+		}),
+		new webpack.optimize.UglifyJsPlugin({
+			sourseMap: true,
+			compress: {
+				warnings: false
+			}
+		})
 	],
 	devServer: {
 		contentBase: path.resolve(__dirname, "./dist"),

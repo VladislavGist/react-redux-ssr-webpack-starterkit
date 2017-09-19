@@ -1,6 +1,9 @@
 import React, {Component} from "react"
 import {connect} from "react-redux"
 
+//styles
+import "./incrementNumber.sass"
+
 //merge actions and dispatch
 import {bindActionCreators} from "redux"
 
@@ -18,10 +21,11 @@ class IncrementNumber extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="IncrementNumber">
 				Num {this.props.count}
 				<button onClick={::this.increment}>Increment</button>
 				<button onClick={::this.decrement}>Decrement</button>
+				<img src={require("../images/webpack-icon.svg")} alt=""/>
 			</div>
 		)}
 }
