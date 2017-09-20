@@ -31,7 +31,7 @@ const webpackConfig = {
 			{
 				test: /\.sass$/,
 				exclude: /node_modules/,
-				use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
+				use: ["css-hot-loader"].concat(ExtractTextPlugin.extract({
 					publicPath: "../",
 					fallback: "style-loader",
 					use: ["css-loader", "sass-loader"]
@@ -42,6 +42,13 @@ const webpackConfig = {
 				loader: "file-loader",
 				options: {
 					name: "images/[name].[ext]"
+				}
+			},
+			{
+				test: /\.(woff|woff2|eot|ttf)$/,
+				loader: "file-loader",
+				options: {
+					name: "fonts/[name].[ext]"
 				}
 			}
 		]
@@ -56,7 +63,7 @@ const webpackConfig = {
 		new webpack.HotModuleReplacementPlugin(),
 		new ExtractTextPlugin("./css/[name].css"),
 		new webpack.DefinePlugin({
-			'process.env': {
+			"process.env": {
 				NODE_ENV: JSON.stringify("production")
 			}
 		}),

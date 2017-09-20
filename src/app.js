@@ -1,20 +1,22 @@
 import React, { Component } from "react"
 import {Provider} from "react-redux"
-import {createStore, applyMiddleware} from "redux"
-import reduxThunk from "redux-thunk"
-import {composeWithDevTools} from "redux-devtools-extension"
 
-import rootReducer from "./redux/reducers/rootReducer"
+import {store} from "./redux/store/store"
 
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(reduxThunk)))
+import "./styles/styles.sass";
+import "./styles/base.sass";
 
-import IncrementNumber from "./containers/incrementNumber"
+import SideBar from "./containers/sideBar/sideBar"
+import WorkElements from "./containers/workElements/workElements"
 
 class App extends Component {
 	render() {
 		return (
 			<Provider store={store} key={module.hot ? Date.now() : store}>
-				<IncrementNumber />
+				<div>
+					<SideBar />
+					<WorkElements />
+				</div>
 			</Provider>
 		)
 	}
