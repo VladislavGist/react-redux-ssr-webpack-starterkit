@@ -1,8 +1,8 @@
-const webpack = require("webpack")
-const path = require("path")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
-const outputPath = path.resolve(__dirname, "./dist")
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const webpack = require("webpack");
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const outputPath = path.resolve(__dirname, "./dist");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const webpackConfig = {
 	entry: {
@@ -52,8 +52,6 @@ const webpackConfig = {
 			filename: "index.html",
 			path: outputPath
 		}),
-		new webpack.NamedModulesPlugin(),
-		new webpack.HotModuleReplacementPlugin(),
 		new ExtractTextPlugin("./css/[name].css"),
 		new webpack.DefinePlugin({
 			'process.env': {
@@ -65,7 +63,9 @@ const webpackConfig = {
 			compress: {
 				warnings: false
 			}
-		})
+		}),
+		new webpack.NamedModulesPlugin(),
+		new webpack.HotModuleReplacementPlugin()
 	],
 	devServer: {
 		contentBase: path.resolve(__dirname, "./dist"),

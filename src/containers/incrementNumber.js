@@ -22,7 +22,7 @@ class IncrementNumber extends Component {
 	render() {
 		return (
 			<div className="IncrementNumber">
-				Num {this.props.count}
+				test {this.props.count}
 				<button onClick={::this.increment}>Increment</button>
 				<button onClick={::this.decrement}>Decrement</button>
 				<img src={require("../images/webpack-icon.svg")} alt=""/>
