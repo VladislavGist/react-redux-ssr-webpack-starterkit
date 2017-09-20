@@ -9,7 +9,6 @@ import "./styles/base.sass";
 import SideBar from "./containers/sideBar/sideBar"
 import WorkElements from "./containers/workElements/workElements"
 
-
 class App extends Component {
 	render() {
 		return (
