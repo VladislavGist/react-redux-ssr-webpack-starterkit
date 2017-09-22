@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "react-scripts test",
     "dev": "NODE_ENV=development webpack-dev-server --progress --colors",
-    "server": "babel-node server.js",
-    "testBuildInBrowser": "NODE_ENV=development webpack -p",
-    "build": "NODE_ENV=production webpack -p"
+    "testBrowser": "NODE_ENV=testBrowser webpack -p",
+    "build": "NODE_ENV=production webpack -p",
+    "test": "react-scripts test",
+    "server": "babel-node server.js"
   },
   "author": "VladislavGist",
   "license": "ISC",

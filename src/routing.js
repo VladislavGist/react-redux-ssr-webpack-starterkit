@@ -14,11 +14,28 @@ import Transactions from "./containers/transactions/transactions"
 import Profile from "./containers/profile/profile"
 
 class Routing extends Component {
+
+	history() {
+		switch(process.env.NODE_ENV) {
+		case "development":
+			return browserHistory
+			break
+		case "testBrowser":
+			return hashHistory
+			break
+		case "production":
+			return browserHistory
+			break
+		default:
+			return browserHistory
+		}
+	}
+
 	render() {
 		console.log(process.env.NODE_ENV)
 		return (
 			<Provider store={store} key={module.hot ? Date.now() : store}>
-				<Router history={process.env.NODE_ENV === "development" ? hashHistory : browserHistory}>
+				<Router history={::this.history()}>
 					<Route component={App}>
 						<indexRoute path="/" component={Dashboard} />
 						<Route path="/dashboard" component={Dashboard} />
