@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import App from "./app"
+import Routing from "./Routing"
 import {AppContainer} from "react-hot-loader"
 
 const renderApp = Component => {
@@ -12,8 +12,8 @@ const renderApp = Component => {
 	)
 }
 
-renderApp(App)
+renderApp(Routing)
 
 if(module.hot) {
-	module.hot.accept("./app", () => {renderApp(App)})
+	module.hot.accept("./app", () => {renderApp(Routing)})
 }

@@ -1,24 +1,24 @@
 import React, { Component } from "react"
-import {Provider} from "react-redux"
-
-import {store} from "./redux/store/store"
 
 import "./styles/styles.sass";
 import "./styles/base.sass";
 // test
 
+//components
 import SideBar from "./containers/sideBar/sideBar"
 import WorkElements from "./containers/workElements/workElements"
+import Header from "./containers/header/header"
 
 class App extends Component {
 	render() {
 		return (
-			<Provider store={store} key={module.hot ? Date.now() : store}>
-				<div>
-					<SideBar />
-					<WorkElements />
-				</div>
-			</Provider>
+			<div>
+				<Header />
+				<SideBar />
+				<WorkElements>
+					{this.props.children}
+				</WorkElements>
+			</div>
 		)
 	}
 }
