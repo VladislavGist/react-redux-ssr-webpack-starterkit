@@ -9,6 +9,7 @@ class Dashboard extends Component {
 			<div className="dashboard">
 				<div className="container">
 					Dashboard
+					<img src={require("../../images/webpack-icon.svg")} alt=""/>
 				</div>
 			</div>
 		)

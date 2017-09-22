@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const outputPath = path.resolve(__dirname, "./dist");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+const NODE_ENV = process.env.NODE_ENV
+
 const webpackConfig = {
 	entry: {
 		app: [
@@ -62,7 +64,7 @@ const webpackConfig = {
 		new ExtractTextPlugin("./css/[name].css"),
 		new webpack.DefinePlugin({
 			"process.env": {
-				NODE_ENV: JSON.stringify("production")
+				NODE_ENV: JSON.stringify(NODE_ENV)
 			}
 		}),
 		new webpack.optimize.UglifyJsPlugin({

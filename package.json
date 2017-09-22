@@ -7,7 +7,8 @@
     "test": "react-scripts test",
     "dev": "NODE_ENV=development webpack-dev-server --progress --colors",
     "server": "babel-node server.js",
-    "build": "webpack -p"
+    "testBuildInBrowser": "NODE_ENV=development webpack -p",
+    "build": "NODE_ENV=production webpack -p"
   },
   "author": "VladislavGist",
   "license": "ISC",

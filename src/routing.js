@@ -2,7 +2,7 @@ import React, {Component} from "react"
 // import ReactDOM from "react-dom"
 import {Provider} from "react-redux"
 
-import {Router, Route, browserHistory, indexRoute} from "react-router";
+import {Router, Route, indexRoute, hashHistory, browserHistory} from "react-router";
 
 import {store} from "./redux/store/store"
 
@@ -15,9 +15,10 @@ import Profile from "./containers/profile/profile"
 
 class Routing extends Component {
 	render() {
+		console.log(process.env.NODE_ENV)
 		return (
 			<Provider store={store} key={module.hot ? Date.now() : store}>
-				<Router history={browserHistory}>
+				<Router history={process.env.NODE_ENV === "development" ? hashHistory : browserHistory}>
 					<Route component={App}>
 						<indexRoute path="/" component={Dashboard} />
 						<Route path="/dashboard" component={Dashboard} />
