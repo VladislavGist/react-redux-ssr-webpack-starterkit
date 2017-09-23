@@ -2,7 +2,8 @@
   "presets": [
     ["es2015", {"modules": false}],
     "react",
-    "stage-0"
+    "stage-0",
+    "react-hmre"
   ],
   "plugins": [
     "react-hot-loader/babel"
