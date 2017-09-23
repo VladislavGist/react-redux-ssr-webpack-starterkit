@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import Routing from "./Routing"
+import Routing from "./routing"
 import {AppContainer} from "react-hot-loader"
 
 const renderApp = Component => {
