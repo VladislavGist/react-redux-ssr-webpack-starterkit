@@ -4,12 +4,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const outputPath = path.resolve(__dirname, "./dist");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-// const NODE_ENV = process.env.NODE_ENV;
-
 const webpackConfig = {
 	entry: {
 		app: [
-			"react-hot-loader/patch",
 			path.resolve(__dirname, "./src/index.js")
 		]
 	},
@@ -73,14 +70,11 @@ const webpackConfig = {
 				warnings: false
 			}
 		}),
-		new webpack.NamedModulesPlugin(),
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.NamedModulesPlugin()
 	],
 	devServer: {
 		contentBase: path.resolve(__dirname, "./dist"),
 		port: 8080,
-		hot: true,
-		inline: true,
 		historyApiFallback: true,
 		host: "localhost"
 	}

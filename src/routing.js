@@ -32,9 +32,8 @@ class Routing extends Component {
 	}
 
 	render() {
-		console.log(module.hot)
 		return (
-			<Provider store={store} key={module.hot ? Date.now() : store}>
+			<Provider store={store}>
 				<Router history={::this.history()}>
 					<Route component={App}>
 						<indexRoute path="/" component={Dashboard} />

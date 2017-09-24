@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development webpack-dev-server --inline --colors",
+    "dev": "NODE_ENV=development webpack-dev-server --hot --inline --colors",
     "build": "webpack -p",
     "test": "react-scripts test",
     "server": "babel-node server.js"
