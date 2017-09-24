@@ -10,7 +10,7 @@ class SideBar extends Component {
 		return (
 			<div className="sidebar">
 				<div className="container">
-					<Link to="dashboard">dashboard 2</Link>
+					<Link to="dashboard">dashboard</Link>
 					<Link to="distribution">distribution</Link>
 					<Link to="transactions">transactions</Link>
 					<Link to="profile">profile</Link>

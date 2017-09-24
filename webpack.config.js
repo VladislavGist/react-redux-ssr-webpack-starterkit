@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const outputPath = path.resolve(__dirname, "./dist");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+// const NODE_ENV = process.env.NODE_ENV;
+
 const webpackConfig = {
 	entry: {
 		app: [
@@ -77,9 +79,9 @@ const webpackConfig = {
 	devServer: {
 		contentBase: path.resolve(__dirname, "./dist"),
 		port: 8080,
-		historyApiFallback: true,
-		inline: true,
 		hot: true,
+		inline: true,
+		historyApiFallback: true,
 		host: "localhost"
 	}
 };

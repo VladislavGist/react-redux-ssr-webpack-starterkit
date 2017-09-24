@@ -3,13 +3,13 @@ import PropTypes from "prop-types"
 
 import "./article.sass"
 
-import toggleOpen from "../../decorators/toggleOpen"
-
 import CommentsList from "./commentsList"
 
 class Article extends Component {
 	static propTypes = {
-		item: PropTypes.object
+		item: PropTypes.object.isRequired,
+		identElem: PropTypes.string,
+		getOpenArticle: PropTypes.func.isRequired
 	}
 
 	static defaultProps = {
@@ -21,20 +21,28 @@ class Article extends Component {
 		return (
 			<div>
 				{item.text}
-				<CommentsList comments={this.props.item.comments} />
+				<CommentsList comments={item.comments} />
 			</div>
 		)
 	}
 
+	sendId() {
+		this.props.getOpenArticle(this.props.item.id)
+	}
+
+	closeArticle() {
+		this.props.getOpenArticle(null)
+	}
+
 	render() {
-		const {isOpen, toggleIsOpen} = this.props
+		const {identElem, item} = this.props
 		return (
 			<div className="article">
-				{isOpen ? ::this.getContent() : null}
-				<button onClick={toggleIsOpen}>{isOpen ? "Hide" : "Show"}</button>
+				{identElem === item.id ? ::this.getContent() : null}
+				{identElem === item.id ? <button onClick={::this.closeArticle}>Hide</button> : <button onClick={::this.sendId}>Show</button>}
 			</div>
 		)
 	}
 }
 
-export default toggleOpen(Article)
+export default Article

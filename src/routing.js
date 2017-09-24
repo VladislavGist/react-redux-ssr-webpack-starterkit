@@ -32,7 +32,7 @@ class Routing extends Component {
 	}
 
 	render() {
-		console.log(process.env.NODE_ENV)
+		console.log(module.hot)
 		return (
 			<Provider store={store} key={module.hot ? Date.now() : store}>
 				<Router history={::this.history()}>

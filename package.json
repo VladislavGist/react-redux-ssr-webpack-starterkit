@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development webpack-dev-server --progress --colors",
+    "dev": "NODE_ENV=development webpack-dev-server --inline --colors",
     "build": "webpack -p",
     "test": "react-scripts test",
     "server": "babel-node server.js"
@@ -43,7 +43,7 @@
   "dependencies": {
     "babel-cli": "6.26.0",
     "express": "4.15.4",
-    "prop-types": "^15.5.10",
+    "prop-types": "15.5.x",
     "react": "15.5.x",
     "react-dom": "15.5.x",
     "react-redux": "5.0.6",

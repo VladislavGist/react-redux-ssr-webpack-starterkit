@@ -2,16 +2,16 @@ import React, {Component} from "react"
 
 export default OriginalComponent => class WeappedComponent extends Component {
 	state = {
-		isOpen: true
+		isOpenId: null
 	}
 
-	toggleIsOpen() {
+	getOpenArticle(idElem) {
 		this.setState({
-			isOpen: !this.state.isOpen
+			isOpenId: idElem
 		})
 	}
 
 	render() {
-		return <OriginalComponent {...this.props} {...this.state} toggleIsOpen = {::this.toggleIsOpen} />
+		return <OriginalComponent {...this.props} {...this.state} getOpenArticle={::this.getOpenArticle} />
 	}
 }

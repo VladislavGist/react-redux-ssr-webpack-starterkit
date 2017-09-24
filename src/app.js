@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
-import "./styles/styles.sass";
-import "./styles/base.sass";
+import "./styles/styles.sass"
+import "./styles/base.sass"
 // test
 
 //components
@@ -23,4 +23,4 @@ class App extends Component {
 	}
 }
 
-export default App;
+export default App
