@@ -5,9 +5,9 @@ import "./styles/base.sass"
 // test
 
 //components
-import SideBar from "./containers/sideBar/sideBar"
-import WorkElements from "./containers/workElements/workElements"
-import Header from "./containers/header/header"
+import SideBar from "./components/sideBar/sideBar"
+import WorkElements from "./components/workElements/workElements"
+import Header from "./components/header/header"
 
 class App extends Component {
 	render() {

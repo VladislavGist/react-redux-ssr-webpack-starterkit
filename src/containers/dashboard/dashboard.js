@@ -8,7 +8,7 @@ import data from "../../data.json"
 import Select from "react-select"
 import "react-select/dist/react-select.css"
 
-import ArticleList from "../comments/articleList"
+import ArticleList from "../../components/articleList/articleList"
 
 class Dashboard extends Component {
 	state = {

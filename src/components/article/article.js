@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 import "./article.sass"
 
-import CommentsList from "./commentsList"
+import CommentsList from "../commentsList/commentsList"
 import ReactCSSTransitionGroup from "react-addons-css-transition-group"
 
 class Article extends PureComponent {

@@ -1,5 +1,4 @@
 import React, {Component} from "react"
-// import ReactDOM from "react-dom"
 import {Provider} from "react-redux"
 
 import {Router, Route, indexRoute, hashHistory, browserHistory} from "react-router";
@@ -9,9 +8,9 @@ import {store} from "./redux/store/store"
 // //components
 import App from "./app"
 import Dashboard from "./containers/dashboard/dashboard"
-import Distribution from "./containers/distribution/distribution"
-import Transactions from "./containers/transactions/transactions"
-import Profile from "./containers/profile/profile"
+import Distribution from "./components/distribution/distribution"
+import Transactions from "./components/transactions/transactions"
+import Profile from "./components/profile/profile"
 
 class Routing extends Component {
 

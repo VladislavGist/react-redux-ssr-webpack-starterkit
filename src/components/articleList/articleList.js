@@ -3,12 +3,12 @@ import PropTypes from "prop-types"
 
 import toggleOpen from "../../decorators/toggleOpen"
 
-import Article from "./article"
+import Article from "../article/article"
 
 class ArticleList extends Component {
 	static propTypes = {
 		data: PropTypes.array.isRequired,
-		getOpenArticle: PropTypes.func.isRequired,
+		getOpenArticle: PropTypes.func,
 		isOpenId: PropTypes.string
 	}
 

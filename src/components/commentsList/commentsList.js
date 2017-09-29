@@ -2,7 +2,8 @@ import React, {Component} from "react"
 
 import PropTypes from "prop-types"
 
-import Comment from "./comment"
+import Comment from "../comment/comment"
+import FormAddComment from "../../containers/formAddComment/formAddComment"
 
 class CommentsList extends Component {
 	static PropTypes = {
@@ -43,6 +44,7 @@ class CommentsList extends Component {
 			<div>
 				{isOpen ? ::this.getComments() : null}
 				{comLen > 0 ? <button onClick={::this.toggleIsOpen}>{isOpen ? "Hide comments" : "Show comments"}</button> : null}
+				<FormAddComment />
 			</div>
 		)
 	}
