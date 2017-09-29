@@ -45,9 +45,12 @@
     "express": "4.15.4",
     "prop-types": "15.5.x",
     "react": "15.5.x",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "15.5.x",
     "react-redux": "5.0.6",
     "react-router": "3.x.x",
+    "react-select": "1.0.0-rc.10",
+    "react-transition-group": "2.2.0",
     "redux": "3.7.2",
     "redux-thunk": "2.2.0"
   }

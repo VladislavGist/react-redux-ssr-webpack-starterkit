@@ -28,6 +28,10 @@ const webpackConfig = {
 				use: "babel-loader"
 			},
 			{
+				test: /\.css$/,
+				loader: ["style-loader", "css-loader"]
+			},
+			{
 				test: /\.sass$/,
 				exclude: /node_modules/,
 				use: ["css-hot-loader"].concat(ExtractTextPlugin.extract({

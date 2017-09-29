@@ -18,7 +18,12 @@ class ArticleList extends Component {
 			<div>
 				{
 					data.map(elem => {
-						return <Article item={elem} key={elem.id} identElem = {this.props.isOpenId} getOpenArticle={this.props.getOpenArticle} />
+						return <Article
+							item={elem}
+							key={elem.id}
+							identElem = {this.props.isOpenId}
+							getOpenArticle={this.props.getOpenArticle}
+						/>
 					})
 				}
 			</div>

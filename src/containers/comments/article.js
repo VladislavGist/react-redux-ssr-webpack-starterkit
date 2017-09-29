@@ -1,11 +1,12 @@
-import React, {Component} from "react"
+import React, {PureComponent} from "react"
 import PropTypes from "prop-types"
 
 import "./article.sass"
 
 import CommentsList from "./commentsList"
+import ReactCSSTransitionGroup from "react-addons-css-transition-group"
 
-class Article extends Component {
+class Article extends PureComponent {
 	static propTypes = {
 		item: PropTypes.object.isRequired,
 		identElem: PropTypes.string,
@@ -19,10 +20,17 @@ class Article extends Component {
 	getContent() {
 		const {item} = this.props
 		return (
-			<div>
-				{item.text}
-				<CommentsList comments={item.comments} />
-			</div>
+			<ReactCSSTransitionGroup
+				transitionName="example"
+				transitionEnterTimeout={500}
+				transitionLeaveTimeout={300}
+				component="div"
+			>
+				<div>
+					{item.text}
+					<CommentsList comments={item.comments} />
+				</div>
+			</ReactCSSTransitionGroup>
 		)
 	}
 
@@ -36,9 +44,10 @@ class Article extends Component {
 
 	render() {
 		const {identElem, item} = this.props
+		console.log("----", "update article")
 		return (
 			<div className="article">
-				{identElem === item.id ? ::this.getContent() : null}
+				{identElem === item.id ? ::this.getContent() : ""}
 				{identElem === item.id ? <button onClick={::this.closeArticle}>Hide</button> : <button onClick={::this.sendId}>Show</button>}
 			</div>
 		)
