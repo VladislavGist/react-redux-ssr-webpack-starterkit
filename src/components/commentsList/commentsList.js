@@ -5,6 +5,8 @@ import PropTypes from "prop-types"
 import Comment from "../comment/comment"
 import FormAddComment from "../../containers/formAddComment/formAddComment"
 
+import "./commentsList.sass"
+
 class CommentsList extends Component {
 	static PropTypes = {
 		comments: PropTypes.array.isRequired
@@ -41,9 +43,9 @@ class CommentsList extends Component {
 		const {isOpen} = this.state
 		const comLen = this.props.comments.length
 		return (
-			<div>
+			<div className="commentsList">
 				{isOpen ? ::this.getComments() : null}
-				{comLen > 0 ? <button onClick={::this.toggleIsOpen}>{isOpen ? "Hide comments" : "Show comments"}</button> : null}
+				{comLen > 0 ? <button onClick={::this.toggleIsOpen} className="btnHideComm">{isOpen ? "Hide comments" : "Show comments"}</button> : null}
 				<FormAddComment />
 			</div>
 		)

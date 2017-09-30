@@ -1,23 +1,28 @@
 import React, {Component} from "react"
+import {connect} from "react-redux"
 import PropTypes from "prop-types"
 
+//styles
+import "./articleList.sass"
+
+//decorators
 import toggleOpen from "../../decorators/toggleOpen"
 
+//components
 import Article from "../article/article"
 
 class ArticleList extends Component {
 	static propTypes = {
-		data: PropTypes.array.isRequired,
 		getOpenArticle: PropTypes.func,
 		isOpenId: PropTypes.string
 	}
 
 	render() {
-		const {data} = this.props
+		const {articles} = this.props
 		return (
-			<div>
+			<div className="articleList">
 				{
-					data.map(elem => {
+					articles.map(elem => {
 						return <Article
 							item={elem}
 							key={elem.id}
@@ -31,4 +36,10 @@ class ArticleList extends Component {
 	}
 }
 
-export default toggleOpen(ArticleList)
+let mapStateToProps = state => {
+	return {
+		articles: state.articlesReducer
+	}
+}
+
+export default connect(mapStateToProps)(toggleOpen(ArticleList))
