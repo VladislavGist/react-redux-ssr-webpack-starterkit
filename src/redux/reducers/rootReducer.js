@@ -4,10 +4,12 @@ import firstReducer from "./firstReducer"
 import articlesReducer from "./articlesReducer"
 import selectReducer from "./selectReducer"
 import filterReducer from "./filterReducer"
+import commentsList from "./commentsReducer"
 
 export default combineReducers({
 	firstReducer,
 	articlesReducer,
 	selectReducer,
-	filterReducer
+	filterReducer,
+	commentsList
 })

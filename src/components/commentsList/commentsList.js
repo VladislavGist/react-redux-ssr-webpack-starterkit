@@ -1,5 +1,4 @@
 import React, {Component} from "react"
-
 import PropTypes from "prop-types"
 
 import Comment from "../comment/comment"
@@ -21,12 +20,12 @@ class CommentsList extends Component {
 	}
 
 	getComments() {
-		const {comments} = this.props
+		const {commentsArrId} = this.props
 		return (
 			<div>
 				{
-					comments.length > 0 ? comments.map(elem => {
-						return <Comment comment={elem.comment} key={elem.id} />
+					commentsArrId.length > 0 ? commentsArrId.map(id => {
+						return <Comment id={id} key={id} />
 					}) : "No comments"
 				}
 			</div>

@@ -33,7 +33,7 @@ class Article extends PureComponent {
 			>
 				<div>
 					<p className="title">{item.text}</p>
-					<CommentsList comments={item.comments} />
+					<CommentsList commentsArrId={item.comment} />
 				</div>
 			</ReactCSSTransitionGroup>
 		)

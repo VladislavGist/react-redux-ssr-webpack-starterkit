@@ -8,6 +8,9 @@ import "./articleList.sass"
 //decorators
 import toggleOpen from "../../decorators/toggleOpen"
 
+//selectors
+import {filterArticles} from "../../redux/selectors/index"
+
 //components
 import Article from "../article/article"
 
@@ -41,14 +44,14 @@ let mapStateToProps = state => {
 
 	//функция фильтрации статей
 	//взяли все статьи
-	const filterArticles = state.articlesReducer.filter(article => {
-		//если .length false тогда ищем совпадения в стаьях по id с filterReducer
-		//ищем в selected article.id на каждой итерации
-		return !state.filterReducer.selected.length || state.filterReducer.selected.includes(article.id)
-	})
+	// const filterArticles = state.articlesReducer.filter(article => {
+	// 	//если .length false тогда ищем совпадения в стаьях по id с filterReducer
+	// 	//ищем в selected article.id на каждой итерации
+	// 	return !state.filterReducer.selected.length || state.filterReducer.selected.includes(article.id)
+	// })
 
 	return {
-		articles: filterArticles
+		articles: filterArticles(state)
 	}
 }
 
