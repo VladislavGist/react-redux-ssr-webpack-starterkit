@@ -18,6 +18,7 @@ class ArticleList extends Component {
 	}
 
 	render() {
+		console.log("---- update article list")
 		const {articles} = this.props
 		return (
 			<div className="articleList">
@@ -37,8 +38,17 @@ class ArticleList extends Component {
 }
 
 let mapStateToProps = state => {
+
+	//функция фильтрации статей
+	//взяли все статьи
+	const filterArticles = state.articlesReducer.filter(article => {
+		//если .length false тогда ищем совпадения в стаьях по id с filterReducer
+		//ищем в selected article.id на каждой итерации
+		return !state.filterReducer.selected.length || state.filterReducer.selected.includes(article.id)
+	})
+
 	return {
-		articles: state.articlesReducer
+		articles: filterArticles
 	}
 }
 

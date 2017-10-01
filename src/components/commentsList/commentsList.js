@@ -3,7 +3,7 @@ import React, {Component} from "react"
 import PropTypes from "prop-types"
 
 import Comment from "../comment/comment"
-import FormAddComment from "../../containers/formAddComment/formAddComment"
+import FormAddComment from "../formAddComment/formAddComment"
 
 import "./commentsList.sass"
 

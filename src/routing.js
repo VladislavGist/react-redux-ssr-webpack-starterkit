@@ -7,7 +7,7 @@ import {store} from "./redux/store/store"
 
 // //components
 import App from "./app"
-import Dashboard from "./containers/dashboard/dashboard"
+import Dashboard from "./components/dashboard/dashboard"
 import Distribution from "./components/distribution/distribution"
 import Transactions from "./components/transactions/transactions"
 import Profile from "./components/profile/profile"

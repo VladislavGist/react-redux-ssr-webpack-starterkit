@@ -22,12 +22,13 @@ class Dashboard extends Component {
 		this.props.increment(this.props.stateCount - 1)
 	}
 
-	changeSelection = selection => {
-		this.props.changeSelect(selection)
+	changeSelection = selected => {
+		//передаем только id статей
+		this.props.changeSelect(selected.map(option => option.value))
 	}
 
 	render() {
-		let options = this.props.data.map(elem => ({
+		let options = this.props.articles.map(elem => ({
 			label: elem.text,
 			value: elem.id
 		}))
@@ -62,8 +63,8 @@ class Dashboard extends Component {
 let mapStateToProps = state => {
 	return {
 		stateCount: state.firstReducer.count,
-		selectReducer: state.selectReducer,
-		data: state.articlesReducer
+		selectReducer: state.filterReducer.selected,
+		articles: state.articlesReducer
 	}
 }
 
