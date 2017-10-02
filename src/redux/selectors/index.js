@@ -1,5 +1,7 @@
 import {createSelector} from "reselect"
 
+//селектор фильтра статей
+
 const filterGetter = state => state.filterReducer
 const articlesGetter = state => state.articlesReducer
 
@@ -15,4 +17,16 @@ export const filterArticles = createSelector(articlesGetter, filterGetter, (arti
 		//перебирая каждую статью смотрим, чтобы массив filterReducer.selected содержал в себе id статьи
 		return !filterReducer.selected.length || filterReducer.selected.includes(article.id)
 	})
+})
+
+
+//селектор комментариев в статьях
+
+const commentsGetter = state => state.commentsList
+const idGetter = (state, props) => props.id
+
+//все последующие селекторы должны возвращать функцию
+export const commentSelectorFactory = () => createSelector(commentsGetter, idGetter, (commentsList, idGetter) => {
+	console.log("--getting comment")
+	return commentsList[idGetter]
 })

@@ -2,6 +2,8 @@ import React, {Component} from "react"
 import PropTypes from "prop-types"
 import {connect} from "react-redux"
 
+import {commentSelectorFactory} from "../../redux/selectors/index"
+
 class Comment extends Component {
 	static propTypes = {
 		id: PropTypes.string,
@@ -17,11 +19,16 @@ class Comment extends Component {
 	}
 }
 
-let mapStateToProps = (state, ownProps) => {
-	console.log(state.commentsList)
-	console.log(ownProps)
-	return {
-		commentElems: state.commentsList.find(comment => comment.id === ownProps.id)
+const mapStateToProps = () => {
+	//при инициализации здесь сюда единожди пришла функция
+	//такой подход нужен при работе с больше чем 1 селектором. ибо не будет эффекта
+	const commentSelector = commentSelectorFactory()
+
+	//возвращаем функцию которая соединяет селектор с данными
+	return (state, ownProps) => {
+		return {
+			commentElems: commentSelector(state, ownProps)
+		}
 	}
 }
 
