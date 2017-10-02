@@ -4,3 +4,5 @@ node_modules
 yarn.lock
 package-lock.json
 dist
+simple_api/node_modules
+simple_api/package-lock.json

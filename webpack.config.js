@@ -80,7 +80,11 @@ const webpackConfig = {
 		contentBase: path.resolve(__dirname, "./dist"),
 		port: 8080,
 		historyApiFallback: true,
-		host: "localhost"
+		host: "localhost",
+		proxy: [{
+			path: "/api/",
+			target: "http://localhost:3001"
+		}]
 	}
 };
 
