@@ -9,7 +9,7 @@ import "./articleList.sass"
 import toggleOpen from "../../decorators/toggleOpen"
 
 //selectors
-import {filterArticles} from "../../redux/selectors/index"
+import {filterArticles} from "../../selectors/index"
 
 //components
 import Article from "../article/article"

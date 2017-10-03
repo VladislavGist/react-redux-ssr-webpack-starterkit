@@ -2,7 +2,7 @@ import React, {Component} from "react"
 import PropTypes from "prop-types"
 import {connect} from "react-redux"
 
-import {commentSelectorFactory} from "../../redux/selectors/index"
+import {commentSelectorFactory} from "../../selectors/index"
 
 class Comment extends Component {
 	static propTypes = {
