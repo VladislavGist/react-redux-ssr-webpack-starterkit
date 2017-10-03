@@ -1,5 +1,10 @@
 import React, {Component} from "react"
+import {connect} from "react-redux"
 
+//actions
+import {addComment} from "../../redux/actions/comments"
+
+//styles
 import "./formAddComment.sass"
 
 class FormAddComment extends Component {
@@ -28,6 +33,10 @@ class FormAddComment extends Component {
 		)
 	}
 
+	handleSubmit() {
+		this.props.addComment({comment: "text comment", user: "Bill"})
+	}
+
 	render() {
 		return(
 			<form>
@@ -45,10 +54,10 @@ class FormAddComment extends Component {
 					onChange={::this.setText}
 					className={::this.errorClass("comment")}/>
 
-				<button>Submit</button>
+				<a href="javascript:void(0)" onClick={::this.handleSubmit}>Submit</a>
 			</form>
 		)
 	}
 }
 
-export default FormAddComment
+export default connect(null, {addComment})(FormAddComment)

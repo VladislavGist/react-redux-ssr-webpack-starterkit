@@ -5,11 +5,13 @@ import articlesReducer from "./articlesReducer"
 import selectReducer from "./selectReducer"
 import filterReducer from "./filterReducer"
 import commentsList from "./commentsReducer"
+import articlesList from "./articlesList"
 
 export default combineReducers({
 	firstReducer,
 	articlesReducer,
 	selectReducer,
 	filterReducer,
-	commentsList
+	commentsList,
+	articlesList
 })

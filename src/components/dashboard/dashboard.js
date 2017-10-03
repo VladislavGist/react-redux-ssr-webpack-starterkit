@@ -64,7 +64,7 @@ let mapStateToProps = state => {
 	return {
 		stateCount: state.firstReducer.count,
 		selectReducer: state.filterReducer.selected,
-		articles: state.articlesReducer
+		articles: state.articlesList
 	}
 }
 

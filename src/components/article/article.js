@@ -22,6 +22,8 @@ class Article extends PureComponent {
 		item: {}
 	}
 
+	//id = this.props.id
+
 	getContent() {
 		const {item} = this.props
 		return (
@@ -33,7 +35,7 @@ class Article extends PureComponent {
 			>
 				<div>
 					<p className="title">{item.text}</p>
-					<CommentsList commentsArrId={item.comment} />
+					<CommentsList commentsArrId={this.props.arrCommentsId.comment} />
 				</div>
 			</ReactCSSTransitionGroup>
 		)
@@ -64,4 +66,11 @@ class Article extends PureComponent {
 	}
 }
 
-export default connect(null, {deleteArticle})(Article)
+let mapStateToProps = ((state, ownProps) => {
+	return {
+		item: state.articlesList.find(article => article.id === ownProps.id),
+		arrCommentsId: state.articlesReducer.find(item => item.article === ownProps.id)
+	}
+})
+
+export default connect(mapStateToProps, {deleteArticle})(Article)

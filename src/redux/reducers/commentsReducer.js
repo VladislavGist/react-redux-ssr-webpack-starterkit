@@ -1,16 +1,24 @@
 import {comments} from "../../data.js"
 
-// import {DELETE_ARTICLE} from "../constants/articlesConstants"
+//helpers
+import {arrToMap} from "../../helpers"
 
+import {ADD_COMMENT} from "../constants/articlesConstants"
 
-//вообще не понятно что это. но это складывает все элементы массива запоминая промежуточный результат
-const commentMap = comments.reduce((acc, comment) => {
-	acc[comment.id] = comment
-	return acc
-}, {})
+const commentsList = (state = arrToMap(comments), action) => {
 
-const commentsList = (state = commentMap, action) => {
+	let {payload} = action
+
 	switch(action.type) {
+	case ADD_COMMENT:
+		return {
+			...state,
+			[payload.id]: {
+				comment: action.payload.comment,
+				user: action.payload.user,
+				id: action.payload.id
+			}
+		}
 	default:
 		return state
 	}

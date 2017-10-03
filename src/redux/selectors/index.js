@@ -15,7 +15,7 @@ export const filterArticles = createSelector(articlesGetter, filterGetter, (arti
 	//фильтруем статьи
 	return articlesReducer.filter(article => {
 		//перебирая каждую статью смотрим, чтобы массив filterReducer.selected содержал в себе id статьи
-		return !filterReducer.selected.length || filterReducer.selected.includes(article.id)
+		return !filterReducer.selected.length || filterReducer.selected.includes(article.article)
 	})
 })
 
@@ -27,6 +27,5 @@ const idGetter = (state, props) => props.id
 
 //все последующие селекторы должны возвращать функцию
 export const commentSelectorFactory = () => createSelector(commentsGetter, idGetter, (commentsList, idGetter) => {
-	console.log("--getting comment")
 	return commentsList[idGetter]
 })

@@ -1,3 +1,38 @@
+export const articles = [
+	{
+		"text": "text article 1",
+		"id": "eiuh2378h2398"
+	},
+	{
+		"text": "text article 2",
+		"id": "ofgregew8j"
+	},
+	{
+		"text": "text article 3",
+		"id": "9i09wueui"
+	},
+	{
+		"text": "text article 4",
+		"id": "hhg289j0"
+	},
+	{
+		"text": "text article 5",
+		"id": "eiuh2378greh2398"
+	},
+	{
+		"text": "text article 6",
+		"id": "ofew8j"
+	},
+	{
+		"text": "text article 7",
+		"id": "9i0954wueui"
+	},
+	{
+		"text": "text article 8",
+		"id": "hhg255g89j0"
+	}
+]
+
 export const comments = [
 	{
 		"comment": "text comment 1",
@@ -48,43 +83,35 @@ export const comments = [
 
 export const normilizedArticles = [
 	{
-		"text": "text article 1",
-		"id": "eiuh2378h2398",
+		"article": "eiuh2378h2398",
 		"comment": ["78h4g3438743g", "ge923j982j", "g45g4h45h4"]
 	},
 	{
-		"text": "text article 2",
-		"id": "ofgregew8j",
+		"article": "ofgregew8j",
 		"comment": ["fbd78t8", "9909j98j394g", "gtrtnth"]
 	},
 	{
-		"text": "text article 3",
-		"id": "9i09wueui",
+		"article": "9i09wueui",
 		"comment": ["3f4g56h5", "4363h65h", "34ghrthth45"]
 	},
 	{
-		"text": "text article 4",
-		"id": "hhg289j0",
+		"article": "hhg289j0",
 		"comment": []
 	},
 	{
-		"text": "text article 5",
-		"id": "eiuh2378greh2398",
+		"article": "eiuh2378greh2398",
 		"comment": []
 	},
 	{
-		"text": "text article 6",
-		"id": "ofew8j",
+		"article": "ofew8j",
 		"comment": []
 	},
 	{
-		"text": "text article 7",
-		"id": "9i0954wueui",
+		"article": "9i0954wueui",
 		"comment": []
 	},
 	{
-		"text": "text article 8",
-		"id": "hhg255g89j0",
+		"article": "hhg255g89j0",
 		"comment": []
 	}
 ]
